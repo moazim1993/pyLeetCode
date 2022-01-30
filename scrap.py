@@ -43,6 +43,7 @@ h2 = [59,15,23,55,30,47,61,74,86,25,42,40,21,0,87,79,45,42,0,47,61,93,69,1,42,
 
 
 
+
 def maxArea(height):
     tab = [0]*(len(height))
     for i in range(1,len(height)):
@@ -71,7 +72,7 @@ def maxArea(height):
     for i in range(1,len(height)):
         dropLeft = min(height[i],height[-1])*(lenH-(i+1))
         dropRight = min(height[0],height[-(i+1)])*(lenH-(i+1))
-        #print(i,height[0],height[-1],height)
+        print(i,height[0],height[-1],height)
         #print(val,dropLeft,dropRight)
         #breakpoint()
         if dropLeft > dropRight:
@@ -89,6 +90,6 @@ print(res1)
 start_time = time.time()
 res1 = maxArea(h1)
 print(res1)
-res2 = maxArea(h2)
-print(res2)
+#res2 = maxArea(h2)
+#print(res2)
 print("--- %s seconds ---" % (time.time() - start_time))
