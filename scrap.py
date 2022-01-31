@@ -68,18 +68,15 @@ def maxArea(height):
     if lenH == 2:
         return min(height)
     val = min(height[0],height[-1])*(lenH-1)
-    i = 1
-    for i in range(1,len(height)):
+    for i in range(len(height)):
         dropLeft = min(height[i],height[-1])*(lenH-(i+1))
         dropRight = min(height[0],height[-(i+1)])*(lenH-(i+1))
         print(i,height[0],height[-1],height)
-        #print(val,dropLeft,dropRight)
-        #breakpoint()
         if dropLeft > dropRight:
             if dropLeft > val and (height[0] < height[i]):
-                return max(val,maxArea(height[i:]))
+                val = max(val,maxArea(height[i:]))
         elif dropRight > val and (height[-1] < height[-(i+1)]):
-            return max(val,maxArea(height[:-i]))
+            val = max(val,maxArea(height[:-i]))
     return val
 
 """
