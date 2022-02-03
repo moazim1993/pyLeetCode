@@ -54,7 +54,7 @@ def maxArea(height):
         dropRight = min(height[0],height[-(i+1)])*(lenH-(i+1))
         print(i,height[0],height[-1],height)
         print(val,dropLeft,dropRight)
-        breakpoint()
+        
         if dropLeft > dropRight:
             if dropLeft > val and (height[0] < height[i]):
                 return max(val,maxArea(height[i:]))
