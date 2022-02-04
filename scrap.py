@@ -58,8 +58,8 @@ def maxArea(height):
 start_time = time.time()
 res1 = maxArea(h1)
 print(res1)
-res2 = maxArea(h2)
-print(res2)
+#res2 = maxArea(h2)
+#print(res2)
 print("--- %s seconds ---" % (time.time() - start_time))
 
 
@@ -71,10 +71,8 @@ def maxArea(height):
     for i in range(len(height)):
         dropLeft = min(height[i],height[-1])*(lenH-(i+1))
         dropRight = min(height[0],height[-(i+1)])*(lenH-(i+1))
-        print(i,height[0],height[-1],height)
         if dropLeft > dropRight:
-            if dropLeft > val and (height[0] < height[i]):
-                val = max(val,maxArea(height[i:]))
+            val = max(val,maxArea(height[i:]))
         elif dropRight > val and (height[-1] < height[-(i+1)]):
             val = max(val,maxArea(height[:-i]))
     return val
